@@ -1,7 +1,7 @@
 {
   "db_host": "localhost",
-  "db_name": "therapy_box",
-  "db_user": "root",
-  "db_pwd": "findingf"
+  "db_name": "db_name",
+  "db_user": "user",
+  "db_pwd": "password"
 
 }
