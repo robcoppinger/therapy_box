@@ -69,6 +69,7 @@ body{
 }
 .taskRow {	
 	margin-top: 5px;
+	cursor: text;
 }
 #modal-body {
 	padding: 10px;
@@ -92,6 +93,8 @@ h3 {
 .footer{
 	margin: 50px;
 	border-top:1px solid darkgrey;
+	/*position: absolute;
+	bottom: 50;*/
 }
 
 .imgBox {
@@ -156,4 +159,39 @@ rect {
 .btn-primary:hover {
 	background-color: #f4ec11;
 	color: black;
+}
+.newsDesc {
+	padding: 20px;
+}
+.newsImg {
+	max-width: 35vw;
+	overflow: none;
+}
+.modalNewsText {	
+	margin-top: 30px;
+}
+#teamsListParent {
+	background-color: rgba(255,255,255,0.5);
+	border-radius: 2px;
+	color: black;
+	margin-top: 50px;
+	padding: 2px;
+	max-height: 80vh;
+	overflow: scroll;
+}
+.teamsListChild {
+	border: 1px solid #dbd413;
+	margin: 1px;
+	border-radius: 2px;
+	text-align: center;	
+	background-color: #fff600;
+	cursor: pointer;
+
+}
+.teamsListChild p {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.teamsListChild:hover {
+	font-weight: bold;
 }

@@ -19,20 +19,21 @@
 	}
 
 	$content = array ();
-	$content[0]["title"]="News";$content[0]["content"]="<p>Loading news...</p>";
-	$content[0]["attr"]="";
+	$content[0]["title"]="News";$content[0]["content"]= getNews(0);
+	$content[0]["attr"]='onclick="showNews()"';
 
-	$content[1]["title"]="Weather";$content[1]["content"]=getWeatherPreview(null,null); $content[1]["attr"]="";
+	$content[1]["title"]="Weather";$content[1]["content"]=getWeatherPreview(null,null); $content[1]["attr"]="style='cursor: default;'";
 
-	$content[2]["title"]="Sport";$content[2]["content"]="Loading Sport...";
-	$content[2]["attr"]="";
+	$content[2]["title"]="Sport";$content[2]["content"]=getNews(2);
+	$content[2]["attr"]='onclick = "window.location.href=\'sports.php\'"';
 
 	$content[3]["title"]="Photos";$content[3]["content"]=getPhotoPreview();
 	$content[3]["attr"]='onclick="window.location.href=\'gallery.php\'"';
 
 	$content[4]["title"]="Tasks";$content[4]["content"]=$conn->getTaskPreview($userId); $content[4]["attr"]='onclick="window.location.href=\'tasks.php\'"';
 
-	$content[5]["title"]="Favourite Warmer";$content[5]["content"]="<div id='chart-1' captionPadding='0'>"; $content[5]["attr"]='data-toggle="modal" data-target="#myModal"';
+	$content[5]["title"]="Favourite Warmer";$content[5]["content"]="<div id='chart-1' captionPadding='0'>"; 
+	$content[5]["attr"]='onclick="showWarmer()"';
 
 	
 ?>
@@ -74,8 +75,9 @@
 							</div>';
 					}
 
-					$columnChart = favWarmer();
-					$columnChart->render();
+					$pieChart = favWarmer(); // get chart details
+					$pieChart[0]->render(); // render chart in  preview
+					$pieChart[1]->render(); // render chart in modal
 
 				?>
 				
@@ -92,17 +94,20 @@
 
 	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="color: black">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 id="modal-title"></h4>
+          <h2 class="favWarmer" style="color:black; display: none;">Favourite Warmer</h4>
+          <h2 class="newsModal" style="color:black; display: none;">News</h4>
         </div>
-        <div id="chart-1">
-        	
-
+        <div class="newsModal" style="padding-left: 50px; text-align: center">
+        	<?php echo getNews(1) ?>
+        </div>
+        <div class="favWarmer" id="chart-2" style="display: none;">        	
+        	<!-- placeholder for chart -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -118,8 +123,9 @@
 
 	$( document ).ready(function() {
 		$("#myModal").on("hidden.bs.modal", function () {
-		    //$("#modal-body").html("<h2>Loading...</h2>");
-		    //$('#myModal').modal('show');
+		    $('.favWarmer').hide();
+		    $('.newsModal').hide();
+
 		});
 
 		updateSize();
@@ -143,7 +149,14 @@
 		$('.box').css({'height':bwidth-80+'px'});
 		$('.smallImgBox').css({'height':iwidth-30+'px'});
 	}
-	
+	function showNews(){
+		$('#myModal').modal('toggle');
+		$('.newsModal').show();
+	}
+	function showWarmer(){
+		$('.favWarmer').show();
+		$('#myModal').modal('toggle');		
+	}
 </script>
 
 </html>

@@ -103,7 +103,7 @@
 	});
 	function uploadImage(){
 		addImage();
-		//location.reload();
+		//	location.reload();
 	}
 	function updateSize(){
 		var width = $('.imgBox').width();		

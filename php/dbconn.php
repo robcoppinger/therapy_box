@@ -227,7 +227,7 @@
 			        			<input class="form-control" type="text" id="newTask" name="newTask" placeholder="Add a new task">	
 			        		</div>
 			        		<div class="col-xs-1" style="padding-left: 0px;">
-			        			<button class="btn btn-primary" style="padding: 10px;" onclick="addTask()">
+			        			<button class="btn btn-primary" onclick="addTask()">
 			        				<span class="glyphicon glyphicon-plus" ></span>
 			        			</button>
 			        		</div>
