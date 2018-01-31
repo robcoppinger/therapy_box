@@ -28,4 +28,4 @@ The tasks.php page displays all tasks added by the user, completed as well as un
 
 ### Favourite Warmer
 
-This connects to a [JSON file](https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil) containing individual entries of what item of clothing a person was wearing each day. This JSON file is then read, processed, and a chart is rendered using FusionCharts to displat the results
+This connects to a [JSON file](https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil) containing individual entries of what item of clothing a person was wearing each day. This JSON file is then read, processed, and a chart is rendered using FusionCharts to display the results
